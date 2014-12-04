@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <title>Customers</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</h:head>
+<h:body>
+
+    <h1>Customers</h1>
+
+    <h:form>
+
+        <h3>
+            <h:commandLink
+                action="new-customer"
+                value="New customer"/>
+        </h3>
+
+        <h:dataTable value="#{customerBean.getAllCustomers()}" var="item">
+            <h:column>
+                <f:facet name="header">First name</f:facet>
+                <h:outputText value="#{item.firstName}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Last name</f:facet>
+                <h:outputText value="#{item.lastName}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Address</f:facet>
+                <h:outputText value="#{item.address}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Action</f:facet>
+                <h:commandLink 
+                        action="#{customerBean.showEditCustomer}"
+                        value="Edit">
+                    <f:setPropertyActionListener 
+                        target="#{customerBean.id}"
+                        value="#{item.id}"/>
+                </h:commandLink>
+                &nbsp;
+                <h:commandLink
+                        action="#{customerBean.deleteCustomer}"
+                        value="Delete">
+                    <f:setPropertyActionListener
+                        target="#{customerBean.id}"
+                        value="#{item.id}"/>
+                    <f:setPropertyActionListener
+                        target="#{customerBean.version}"
+                        value="#{item.version}"/>
+                </h:commandLink>
+            </h:column>
+        </h:dataTable>
+    </h:form>
+
+</h:body>
+</html>
+
