@@ -7,4 +7,6 @@ import com.capco.spring.entity.Customer;
 
 @Repository
 public interface CustomerRepository extends CrudRepository<Customer, Long>{
+	
+	public Customer getCustomerByFirstName(String firstName);
 }

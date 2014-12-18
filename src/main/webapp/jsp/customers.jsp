@@ -12,15 +12,13 @@
     <title>MVC Customers</title>
     <meta http-equiv="Content-Type"
           content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" type="text/css"
-          href="${cssLink}"/>
 </head>
 <body>
 
-    <h1>Customer list</h1>
+    <h1>MVC Customers</h1>
 
     <h3>
-        <a href="${newCustomerLink}">
+        <a href="customers/edit">
             Add Customer
         </a>
     </h3>
@@ -41,10 +39,10 @@
                 <td>${customer.lastName}</td>
                 <td>${customer.address}</td>
                 <td>
-                    <jstl:url value="/edit-customer.html" var="editLink">
+                    <jstl:url value="customers/edit" var="editLink">
                         <jstl:param name="id" value="${customer.id}"/>
                     </jstl:url>
-                    <jstl:url value="/delete-customer.html" var="deleteLink">
+                    <jstl:url value="customers/delete" var="deleteLink" >
                         <jstl:param name="id" value="${customer.id}"/>
                     </jstl:url>
                     <a href="${editLink}">Edit</a>

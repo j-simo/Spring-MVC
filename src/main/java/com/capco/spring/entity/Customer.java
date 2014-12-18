@@ -26,11 +26,11 @@ public class Customer {
 	@Column(name = "address", length=256)
 	private String address;
 	
-	public Customer(Long id, String firstName, String secondName, String address) {
+	public Customer(Long id, String firstName, String lastName, String address) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
-		this.lastName = secondName;
+		this.lastName = lastName;
 		this.address = address;
 	}
 	

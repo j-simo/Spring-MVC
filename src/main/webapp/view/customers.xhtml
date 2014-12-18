@@ -4,12 +4,12 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
-    <title>Customers</title>
+    <title>JSF Customers</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </h:head>
 <h:body>
 
-    <h1>Customers</h1>
+    <h1>JSF Customers</h1>
 
     <h:form>
 
@@ -31,27 +31,6 @@
             <h:column>
                 <f:facet name="header">Address</f:facet>
                 <h:outputText value="#{item.address}"/>
-            </h:column>
-            <h:column>
-                <f:facet name="header">Action</f:facet>
-                <h:commandLink 
-                        action="#{customerBean.showEditCustomer}"
-                        value="Edit">
-                    <f:setPropertyActionListener 
-                        target="#{customerBean.id}"
-                        value="#{item.id}"/>
-                </h:commandLink>
-                &nbsp;
-                <h:commandLink
-                        action="#{customerBean.deleteCustomer}"
-                        value="Delete">
-                    <f:setPropertyActionListener
-                        target="#{customerBean.id}"
-                        value="#{item.id}"/>
-                    <f:setPropertyActionListener
-                        target="#{customerBean.version}"
-                        value="#{item.version}"/>
-                </h:commandLink>
             </h:column>
         </h:dataTable>
     </h:form>

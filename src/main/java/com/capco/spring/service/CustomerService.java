@@ -28,4 +28,8 @@ public class CustomerService implements Serializable{
 	public void deleteCustomer(Long id) {
 		customerDao.delete(id);
 	}
+	
+	public void addCustomer(Customer customer) {
+		customerDao.save(customer);
+	}
 }

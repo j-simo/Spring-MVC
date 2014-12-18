@@ -16,32 +16,10 @@ public class CustomerBean implements Serializable{
 	
 	@Autowired
 	private CustomerService customerService;
-
-	private Long id;
-	
-	private String firstName;
-	
-	private String secondName;
-	
-	private String address;
 	
 	public List<Customer> getAllCustomers() {
 		List<Customer> customers = customerService.getAllCustomers();
 		return customers;
 	}
 	
-	 public String showEditCustomer() {
-	        Customer customer = customerService.getCustomerById(id);
-	        id = customer.getId();
-	        firstName = customer.getFirstName();
-	        secondName = customer.getLastName();
-	        address = customer.getAddress();
-	        return "edit-customer";
-	    }
-	
-	 public String deleteCustomer() {
-	        Customer customer = customerService.getCustomerById(id);
-	        customerService.deleteCustomer(id);
-	        return "customers?faces-redirect=true";
-	    }
 }
